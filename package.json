@@ -1,0 +1,59 @@
+{
+    "name": "peerbox-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.ts",
+    "scripts": {
+        "test": "ts-mocha -r esm --paths --timeout 60000 -p ./tsconfig.json src/**/*.spec.ts --exit",
+        "build": "npx tsc",
+        "start": "nodemon --exec ts-node -e ts --project tsconfig.json src/server.ts",
+        "dev": "concurrently \"npx tsc --watch\" \"nodemon -q src/server.ts\"",
+        "db-seed": "npx prisma migrate reset",
+        "studio": "prisma studio",
+        "schema-format": "prisma format",
+        "migrate-prod": "prisma migrate deploy",
+        "migrate-dev": "prisma migrate dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/niebexco/peerbox-api.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/niebexco/peerbox-api/issues"
+    },
+    "homepage": "https://github.com/niebexco/peerbox-api#readme",
+    "prisma": {
+        "seed": "ts-node prisma/seed.ts"
+    },
+    "dependencies": {
+        "@graphql-tools/schema": "^10.0.0",
+        "@prisma/client": "^5.1.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "esm": "^3.2.25",
+        "express": "^4.18.2",
+        "express-graphql": "^0.12.0",
+        "firebase-admin": "^11.10.1",
+        "graphql": "^15.8.0",
+        "joi": "^17.9.2",
+        "lodash": "^4.17.21",
+        "ts-mocha": "^10.0.0"
+    },
+    "devDependencies": {
+        "@faker-js/faker": "^8.0.2",
+        "@types/cors": "^2.8.13",
+        "@types/express": "^4.17.17",
+        "@types/lodash": "^4.14.197",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "^20.5.0",
+        "chai": "^4.3.7",
+        "concurrently": "^8.2.0",
+        "mocha": "^10.2.0",
+        "nodemon": "^3.0.1",
+        "prisma": "^5.1.1",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.1.6"
+    }
+}
